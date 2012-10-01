@@ -30,13 +30,13 @@ This plugin uses JsMin and CSSMin libraries to compress assets and it currently 
 
 2- Download latest version of "jsmin" (https://github.com/rgrove/jsmin-php/blob/master/jsmin.php) and "cssmin" (http://code.google.com/p/cssmin/downloads/list) compression libraries and put inside `app/Vendor/jsmin/` and `app/Vendor/cssmin/` respectively
 
-2- Add `CakePlugin::load(array('EasyCompressor' => array('routes' => true)));` in `app/Config/bootstrap.php` to load plugin
+3- Add `CakePlugin::load(array('EasyCompressor' => array('routes' => true)));` in `app/Config/bootstrap.php` to load plugin
 
-3- Add `EasyCompressor.EasyCompressor` for helpers array in `app/Controller/AppController` like below.
+4- Add `EasyCompressor.EasyCompressor` for helpers array in `app/Controller/AppController` like below.
 
 	public $helpers = array('Html', 'Text', 'Form', 'EasyCompressor.EasyCompressor');
 
-4- Call methods responsible to get the compressed CSS and Js in layout, see below:
+5- Call methods responsible to get the compressed CSS and Js in layout, see below:
 
 	// Get scripts included with: $this->Html->script(array('file1'), array('inline' => false, 'block' => 'layout_script'));
 	echo $this->EasyCompressor->getLayoutScript();
@@ -48,7 +48,7 @@ This plugin uses JsMin and CSSMin libraries to compress assets and it currently 
 	// Get CSS included with $this->Html->css(array('style'), NULL, array('inline' => false));
 	echo $this->EasyCompressor->getViewCSS();
 
-5- Set debug level to 0 in `app/Config/core.php` or add `Configure::write('EasyCompressor.enabled', true);` to enable EasyCompressor without minding with debug level
+6- Set debug level to 0 in `app/Config/core.php` or add `Configure::write('EasyCompressor.enabled', true);` to enable EasyCompressor without minding with debug level
 
 
 ### More
@@ -63,3 +63,5 @@ For CSS, use:
 
 
 Scripts and CSS included as default way will be treated as view assets.
+
+I have made a post in my blog (in pt-BR) where I explain how to use EasyCompressor too, see http://blog.glaucocustodio.com/2012/09/28/compressor-de-javascript-e-css-para-cakephp-easy-compressor
