@@ -1,6 +1,6 @@
 # Easy Compressor Plugin 
 
-CakePHP plugin for CSS and Js compression in a easy way.
+CakePHP plugin for CSS and Js compression in a easy way. See demo project https://github.com/glaucocustodio/easy-compressor-demo-project.
 
 
 ## Features
