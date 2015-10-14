@@ -33,20 +33,22 @@ This plugin uses JsMin and CSSMin libraries to compress assets and it currently 
 3- Add `CakePlugin::load(array('EasyCompressor' => array('routes' => true)));` in `app/Config/bootstrap.php` to load plugin
 
 4- Add `EasyCompressor.EasyCompressor` for helpers array in `app/Controller/AppController` like below.
-
-	public $helpers = array('Html', 'Text', 'Form', 'EasyCompressor.EasyCompressor');
+```php
+public $helpers = array('Html', 'Text', 'Form', 'EasyCompressor.EasyCompressor');
+```
 
 5- Call methods responsible to get the compressed CSS and Js in layout, see below:
+```php
+// Get scripts included with: $this->Html->script(array('file1'), array('inline' => false, 'block' => 'layout_script'));
+echo $this->EasyCompressor->getLayoutScript();
+// Get scripts included with $this->Html->script(array('file1'), array('inline' => false));
+echo $this->EasyCompressor->getViewScript();
 
-	// Get scripts included with: $this->Html->script(array('file1'), array('inline' => false, 'block' => 'layout_script'));
-	echo $this->EasyCompressor->getLayoutScript();
-	// Get scripts included with $this->Html->script(array('file1'), array('inline' => false));
-	echo $this->EasyCompressor->getViewScript();
-
-	// Get CSS included with $this->Html->css(array('style'), NULL, array('inline' => false, 'block' => 'layout_css'));
-	echo $this->EasyCompressor->getLayoutCSS();
-	// Get CSS included with $this->Html->css(array('style'), NULL, array('inline' => false));
-	echo $this->EasyCompressor->getViewCSS();
+// Get CSS included with $this->Html->css(array('style'), NULL, array('inline' => false, 'block' => 'layout_css'));
+echo $this->EasyCompressor->getLayoutCSS();
+// Get CSS included with $this->Html->css(array('style'), NULL, array('inline' => false));
+echo $this->EasyCompressor->getViewCSS();
+```
 
 6- Set debug level to 0 in `app/Config/core.php` or add `Configure::write('EasyCompressor.enabled', true);` to enable EasyCompressor without minding with debug level
 
@@ -54,13 +56,14 @@ This plugin uses JsMin and CSSMin libraries to compress assets and it currently 
 ### More
 
 If you wanna include scripts files in layout (separated from view scripts) you must use:
-
-	$this->Html->script(array('file1'), array('inline' => false, 'block' => 'layout_script'));
+```php
+$this->Html->script(array('file1'), array('inline' => false, 'block' => 'layout_script'));
+```
 
 For CSS, use:
-
-	$this->Html->css(array('style'), NULL, array('inline' => false, 'block' => 'layout_css'));
-
+```php
+$this->Html->css(array('style'), NULL, array('inline' => false, 'block' => 'layout_css'));
+```
 
 Scripts and CSS included as default way will be treated as view assets.
 
