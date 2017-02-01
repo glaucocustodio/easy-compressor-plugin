@@ -67,4 +67,4 @@ $this->Html->css(array('style'), NULL, array('inline' => false, 'block' => 'layo
 
 Scripts and CSS included as default way will be treated as view assets.
 
-I have made a post in my blog (in pt-BR) where I explain how to use EasyCompressor too, see http://blog.glaucocustodio.com/2012/09/28/compressor-de-javascript-e-css-para-cakephp-easy-compressor
+I have made a post in my blog (in pt-BR) where I explain how to use EasyCompressor too, see http://glaucocustodio.github.io/2012/09/28/compressor-de-javascript-e-css-para-cakephp-easy-compressor
